@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gegevens Weergave</title>
+  <style>
+    body {
+      background-color: #000; /* Black background */
+      color: #f00; /* Default text color red */
+      font-family: 'Arial', sans-serif; /* Default font */
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: white; /* Title color */
+    }
+    .name {
+      font-size: 48px; /* Large font size for the name */
+      color: #ff0000; /* Red color for the name */
+      font-family: 'Creepster', cursive; /* Horror-style font */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8); /* Shadow effect for the name */
+      text-decoration: line-through; /* Strike-through effect */
+    }
+    /* Importing the horror-style font */
+    @import url('https://fonts.googleapis.com/css2?family=Creepster&display=swap');
+  </style>
+</head>
+<body>
+  <h1>Vandaag werd deze persoon vermoord:</h1>
+  <div id="dataDisplay" class="name"></div>
+
+  <script>
+    // Retrieve the data from localStorage
+    const name = localStorage.getItem('name');
+    const date = localStorage.getItem('date');
+
+    // Display the data
+    const displayDiv = document.getElementById('dataDisplay');
+    if (name && date) {
+      displayDiv.innerHTML = `<span>${name}</span>`; // Display the name with strike-through
+    } else {
+      displayDiv.innerHTML = '<p>Geen gegevens gevonden.</p>';
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vermoord Formulier</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #f00;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+    input[type="text"] {
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #8b0000;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Geef de details van het slachtoffer</h1>
+  <form id="vermoordForm" onsubmit="return saveData()">
+    <label for="name">Vermoord:</label>
+    <input type="text" id="name" name="name" placeholder="Naam van het slachtoffer" required>
+
+    <label for="date">Datum:</label>
+    <input type="text" id="date" name="date" placeholder="dd-mm-yyyy" required>
+
+    <button type="submit">Verzend</button>
+  </form>
+
+  <script>
+    function saveData() {
+      // Get values from form inputs
+      const name = document.getElementById('name').value;
+      const date = document.getElementById('date').value;
+
+      // Store the data in localStorage (you can also use sessionStorage if preferred)
+      localStorage.setItem('name', name);
+      localStorage.setItem('date', date);
+
+      // Redirect to the display page
+      window.location.href = 'display.html';
+      return false; // Prevent form submission
+    }
+  </script>
+</body>
+</html>
